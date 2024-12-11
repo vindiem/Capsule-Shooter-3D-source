@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 8487af551bb89ac4882d64c7a4679514, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -272,7 +272,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &937937944
 AudioListener:
   m_ObjectHideFlags: 0
@@ -341,7 +341,7 @@ Transform:
   m_GameObject: {fileID: 937937943}
   serializedVersion: 2
   m_LocalRotation: {x: -0.14644639, y: 0.85355353, z: -0.35355327, w: -0.35355324}
-  m_LocalPosition: {x: 7, y: 10, z: 7}
+  m_LocalPosition: {x: 31.000004, y: 43.94111, z: 31.00002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -642,7 +642,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &1705141641
 Light:
   m_ObjectHideFlags: 0

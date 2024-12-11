@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/_Scenes/Menu.unity
+- path: Assets/All weapons/Weapons & Scripts/Demo_Scenes/Weapon_Demo_Scenes/Assault_Rifle_01_Demo/Assault_Rifle_01_Demo.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
