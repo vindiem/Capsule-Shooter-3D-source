@@ -4,12 +4,12 @@ using UnityEngine;
 using Photon.Realtime;
 using Photon.Pun;
 
-public class scoreboard : MonoBehaviourPunCallbacks
+public class Scoreboard : MonoBehaviourPunCallbacks
 {
     [SerializeField] Transform container;
     [SerializeField] GameObject scoreboardItemPefab;
 
-    Dictionary<Player, scoreboardItem> scoreboardItems = new Dictionary<Player, scoreboardItem>();
+    Dictionary<Player, ScoreboardItem> scoreboardItems = new Dictionary<Player, ScoreboardItem>();
 
     void Start()
     {
@@ -33,7 +33,7 @@ public class scoreboard : MonoBehaviourPunCallbacks
 
     void AddScoreboardItem(Player player)
     {
-        scoreboardItem item = Instantiate(scoreboardItemPefab, container).GetComponent<scoreboardItem>();
+        ScoreboardItem item = Instantiate(scoreboardItemPefab, container).GetComponent<ScoreboardItem>();
         item.Initialize(player);
         scoreboardItems[player] = item;
     }

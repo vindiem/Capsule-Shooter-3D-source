@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class SingleShotGun : Gun
 {
-    [SerializeField] Camera cam;
-    PhotonView PV;
+    [SerializeField] private Camera cam;
+    private PhotonView photonView;
 
     public float fireRate;
     public float nextFire;
@@ -22,7 +22,7 @@ public class SingleShotGun : Gun
 
     void Awake()
     {
-        PV = GetComponent<PhotonView>();
+        photonView = GetComponent<PhotonView>();
     }
 
     void Start()
@@ -48,7 +48,7 @@ public class SingleShotGun : Gun
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
             hit.collider.gameObject.GetComponent<IDamageable>()?.TakeDamage(((GunInfo)itemInfo).damage);
-            PV.RPC("RPC_Shoot", RpcTarget.All, hit.point, hit.normal);
+            photonView.RPC("RPC_Shoot", RpcTarget.All, hit.point, hit.normal);
         }
     }
 

@@ -8,6 +8,7 @@ namespace FPSControllerLPFP
     [RequireComponent(typeof(Rigidbody))]
     [RequireComponent(typeof(CapsuleCollider))]
     [RequireComponent(typeof(AudioSource))]
+
     public class FpsControllerLPFP : MonoBehaviour
     {
 #pragma warning disable 649
@@ -208,7 +209,7 @@ namespace FPSControllerLPFP
             var direction = new Vector3(input.Move, 0f, input.Strafe).normalized;
             var worldDirection = transform.TransformDirection(direction);
             var velocity = worldDirection * (input.Run ? runningSpeed : walkingSpeed);
-            //Checks for collisions so that the character does not stuck when jumping against walls.
+            // Checks for collisions so that the character does not stuck when jumping against walls.
             var intersectsWall = CheckCollisionsWithWalls(velocity);
             if (intersectsWall)
             {
@@ -270,7 +271,7 @@ namespace FPSControllerLPFP
                 }
             }
         }
-			
+
         /// A helper for assistance with smoothing the camera rotation.
         private class SmoothRotation
         {

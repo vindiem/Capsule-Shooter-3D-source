@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Photon.Realtime;
 
-public class scoreboardItem : MonoBehaviour
+public class ScoreboardItem : MonoBehaviour
 {
     public Text usernameText;
     public Text killsText;

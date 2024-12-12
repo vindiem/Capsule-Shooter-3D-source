@@ -20,7 +20,7 @@ public class PlayerListItem : MonoBehaviourPunCallbacks
 
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
-        // This fucking func do destoy exectly this player (not others)
+        // This func do destroy exectly this player (not others)
         if (player == otherPlayer)
         {
             Destroy(gameObject);

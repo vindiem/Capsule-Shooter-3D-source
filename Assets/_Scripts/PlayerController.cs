@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
         Jump();
         #endregion
 
-        #region Scroll/Change weapons (weapon logic)
+        #region (weapon logic)
         for (int i = 0; i < items.Length; i++)
         {
             if (Input.GetKeyDown((i + 1).ToString()))
@@ -123,11 +123,6 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
             items[itemIndex].Use();
         }
 
-        /*if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            
-        }*/
-
         if (Input.GetKeyDown(KeyCode.R))
         {
             Reload();
@@ -135,11 +130,26 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 
         #endregion
 
+        /*if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            
+        }*/
 
         if (transform.position.y < -10f)
         {
             Death();
         }
+
+    }
+
+    private void FixedUpdate()
+    {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+        rigidbody.MovePosition(rigidbody.position + transform.TransformDirection(moveAmount) * Time.fixedDeltaTime);
+
     }
 
     private void Look()
@@ -153,7 +163,9 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
     private void Move()
     {
         Vector3 moveDir = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
-        moveAmount = Vector3.SmoothDamp(moveAmount, moveDir * (Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : walkSpeed), ref smoothMoveVelocity, smoothTime);
+        moveAmount = Vector3.SmoothDamp(moveAmount, moveDir * 
+            (Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : walkSpeed), 
+            ref smoothMoveVelocity, smoothTime);
     }
 
     private void Jump()
@@ -198,23 +210,13 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
         grouned = _grounded;
     }
 
-    private void FixedUpdate()
-    {
-        if (!photonView.IsMine)
-        {
-            return;
-        }
-        rigidbody.MovePosition(rigidbody.position + transform.TransformDirection(moveAmount) * Time.fixedDeltaTime);
-
-    }
-
     public void TakeDamage(float damage)
     {
         photonView.RPC("RPC_TakeDamage", RpcTarget.All, damage);
     }
 
     [PunRPC]
-    void RPC_TakeDamage(float damage)
+    private void RPC_TakeDamage(float damage)
     {
         if (!photonView.IsMine)
         {
