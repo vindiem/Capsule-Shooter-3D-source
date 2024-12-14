@@ -71,20 +71,20 @@
     <Compile Include="Assets\_Scripts\ItemInfo.cs" />
     <Compile Include="Assets\_Scripts\Menu\Launcher.cs" />
     <Compile Include="Assets\_Scripts\GunSwitchingSync.cs" />
-    <Compile Include="Assets\Other resources\temp\PlayerMovementD.cs" />
     <Compile Include="Assets\_Scripts\Spawnpoint.cs" />
     <Compile Include="Assets\_Scripts\PlayerController.cs" />
     <Compile Include="Assets\_Scripts\Scoreboard.cs" />
     <Compile Include="Assets\All weapons\Weapons &amp; Scripts\Components\Demo_Scene_Components\Scripts\ExplosiveBarrelScript.cs" />
+    <Compile Include="Assets\Other resources\tempScrs\FpsControllerD.cs" />
     <Compile Include="Assets\_Scripts\Menu\MenuManager.cs" />
     <Compile Include="Assets\_Scripts\ScoreboardItem.cs" />
-    <Compile Include="Assets\Other resources\temp\FpsControllerD.cs" />
     <Compile Include="Assets\_Scripts\UsernameDisplay.cs" />
     <Compile Include="Assets\_Scripts\Menu\PlayerNameManager.cs" />
     <Compile Include="Assets\All weapons\Weapons &amp; Scripts\Components\Scripts\Casings_&amp;_Projectiles\GrenadeScript.cs" />
     <Compile Include="Assets\_Scripts\SpawnManager.cs" />
     <Compile Include="Assets\_Scripts\Gun.cs" />
     <Compile Include="Assets\_Scripts\SingleShotGun.cs" />
+    <Compile Include="Assets\Other resources\tempScrs\GunScriptD.cs" />
     <Compile Include="Assets\_Scripts\Billboard.cs" />
     <Compile Include="Assets\All weapons\Weapons &amp; Scripts\Components\Scripts\Bullet\BulletScript.cs" />
     <Compile Include="Assets\_Scripts\GunInfo.cs" />
@@ -96,8 +96,8 @@
     <Compile Include="Assets\All weapons\Weapons &amp; Scripts\Components\Scripts\Casings_&amp;_Projectiles\CasingScript.cs" />
     <Compile Include="Assets\All weapons\Weapons &amp; Scripts\Components\Demo_Scene_Components\Scripts\TargetScript.cs" />
     <Compile Include="Assets\_Scripts\Menu\Menu.cs" />
-    <Compile Include="Assets\Other resources\temp\GunScriptD.cs" />
     <Compile Include="Assets\_Scripts\Menu\RoomListItem.cs" />
+    <Compile Include="Assets\Other resources\tempScrs\PlayerMovementD.cs" />
     <Compile Include="Assets\_Scripts\PlayerManager.cs" />
     <Compile Include="Assets\All weapons\Weapons &amp; Scripts\Components\Scripts\FPSController\FpsControllerLPFP.cs" />
   </ItemGroup>
@@ -959,24 +959,8 @@
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.Postprocessing.Runtime">
-      <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Runtime.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.PlasticSCM.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.AI.Navigation">
-      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.AI.Navigation.Updater">
-      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Updater.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Postprocessing.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
@@ -1003,16 +987,8 @@
       <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.AI.Navigation.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.Rider.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.AI.Navigation.Editor.ConversionSystem">
-      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Editor.ConversionSystem.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
