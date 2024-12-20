@@ -135,7 +135,7 @@ public class PlayerControllerD : MonoBehaviourPunCallbacks, IDamageable
             
         }*/
 
-        if (transform.position.y < -10f)
+        if (transform.position.y < -20f)
         {
             Death();
         }

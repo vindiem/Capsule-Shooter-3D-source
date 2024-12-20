@@ -813,7 +813,7 @@ MonoBehaviour:
   healthbarImage: {fileID: 868055393494077956}
   ui: {fileID: 3371186177153652967}
   cameraHolder: {fileID: 7517691746840798367}
-  mouseSensitivity: 2.47
+  mouseSensitivity: 1.81
   items:
   - {fileID: 2076227294964885990}
   - {fileID: 4369940791781061426}

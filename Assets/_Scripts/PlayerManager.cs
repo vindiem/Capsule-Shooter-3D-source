@@ -6,27 +6,28 @@ using System.IO;
 
 public class PlayerManager : MonoBehaviour
 {
-    PhotonView PV;
-    GameObject controller;
+    private PhotonView photonView;
+    private GameObject controller;
 
     private void Awake()
     {
-        PV = GetComponent<PhotonView>();
+        photonView = GetComponent<PhotonView>();
     }
 
     private void Start()
     {
-        if (PV.IsMine)
+        if (photonView.IsMine)
         {
             CreateController();
         }
     }
 
-    void CreateController()
+    private void CreateController()
     {
         //Debug.Log("Instantiated Player Controller");
         Transform spawnpoint = SpawnManager.Instance.GetSpawnpoint();
-        controller = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PlayerController"), spawnpoint.position, spawnpoint.rotation, 0, new object[] { PV.ViewID });
+        controller = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PlayerController"), 
+            spawnpoint.position, spawnpoint.rotation, 0, new object[] { photonView.ViewID });
     }
 
     public void Die()

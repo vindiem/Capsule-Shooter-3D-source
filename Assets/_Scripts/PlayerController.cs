@@ -119,7 +119,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
         }
         #endregion
 
-        if (transform.position.y < -10f)
+        if (transform.position.y < -20f)
         {
             Death();
         }
