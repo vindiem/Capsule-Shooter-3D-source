@@ -91,6 +91,7 @@
     <Compile Include="Assets\_Scripts\IDamageable.cs" />
     <Compile Include="Assets\_Scripts\RoomManager.cs" />
     <Compile Include="Assets\Photon\PhotonLibs\WebSocket\WebSocket.cs" />
+    <Compile Include="Assets\Other resources\tempScrs\PlayerControllerD.cs" />
     <Compile Include="Assets\All weapons\Weapons &amp; Scripts\Components\Scripts\Weapon_Scripts\HandgunScriptLPFP.cs" />
     <Compile Include="Assets\Photon\PhotonLibs\WebSocket\SocketWebTcp.cs" />
     <Compile Include="Assets\All weapons\Weapons &amp; Scripts\Components\Scripts\Casings_&amp;_Projectiles\CasingScript.cs" />

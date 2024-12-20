@@ -4,56 +4,56 @@ using UnityEngine;
 
 public class PlayerGroundCheck : MonoBehaviour
 {
-    private PlayerController playerController;
+    private PlayerMovementD playerMovementD;
 
     private void Awake()
     {
-        playerController = GetComponentInParent<PlayerController>();
+        playerMovementD = GetComponentInParent<PlayerMovementD>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        playerController.SetGroundedState(true);
+        playerMovementD.SetGroundedState(true);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.gameObject == playerController.gameObject)
+        if(other.gameObject == playerMovementD.gameObject)
         {
             return;
         }
-        playerController.SetGroundedState(false);
+        playerMovementD.SetGroundedState(false);
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject == playerController.gameObject)
+        if (other.gameObject == playerMovementD.gameObject)
         {
             return;
         }
-        playerController.SetGroundedState(true);
+        playerMovementD.SetGroundedState(true);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        playerController.SetGroundedState(true);
+        playerMovementD.SetGroundedState(true);
     }
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject == playerController.gameObject)
+        if (collision.gameObject == playerMovementD.gameObject)
         {
             return;
         }
-        playerController.SetGroundedState(false);
+        playerMovementD.SetGroundedState(false);
     }
 
     private void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject == playerController.gameObject)
+        if (collision.gameObject == playerMovementD.gameObject)
         {
             return;
         }
-        playerController.SetGroundedState(true);
+        playerMovementD.SetGroundedState(true);
     }
 }

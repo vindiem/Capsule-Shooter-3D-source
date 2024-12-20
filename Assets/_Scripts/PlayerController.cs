@@ -12,19 +12,12 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
     [SerializeField] private Image healthbarImage;
     [SerializeField] private GameObject ui;
     [SerializeField] private GameObject cameraHolder;
-    [SerializeField] private float mouseSensitivity,
-                                    sprintSpeed,
-                                    walkSpeed, 
-                                    jumpForce, 
-                                    smoothTime;
+    [SerializeField] private float mouseSensitivity;
 
     [SerializeField] private Item[] items;
     private int itemIndex;
     private int previousItemIndex = -1;
     private float verticalLookRotation;
-    private bool grouned = true;
-    private Vector3 smoothMoveVelocity;
-    private Vector3 moveAmount;
 
     // Health
     private const float maxHealth = 100f;
@@ -65,13 +58,11 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
             return;
         }
 
-        #region Movement
+        #region Camera Movement
         Look();
-        Move();
-        Jump();
         #endregion
 
-        #region (weapon logic)
+        #region Weapon Logic
         for (int i = 0; i < items.Length; i++)
         {
             if (Input.GetKeyDown((i + 1).ToString()))
@@ -118,7 +109,6 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 
         if (Input.GetButton("Fire1") && Time.time > parametr.nextFire)
         {
-            
             parametr.nextFire = Time.time + 1f / parametr.fireRate;
             items[itemIndex].Use();
         }
@@ -127,28 +117,12 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
         {
             Reload();
         }
-
         #endregion
-
-        /*if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            
-        }*/
 
         if (transform.position.y < -10f)
         {
             Death();
         }
-
-    }
-
-    private void FixedUpdate()
-    {
-        if (!photonView.IsMine)
-        {
-            return;
-        }
-        rigidbody.MovePosition(rigidbody.position + transform.TransformDirection(moveAmount) * Time.fixedDeltaTime);
 
     }
 
@@ -158,22 +132,6 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
         verticalLookRotation += Input.GetAxisRaw("Mouse Y") * mouseSensitivity;
         verticalLookRotation = Mathf.Clamp(verticalLookRotation, -90f, 90f);
         cameraHolder.transform.localEulerAngles = Vector3.left * verticalLookRotation;
-    }
-
-    private void Move()
-    {
-        Vector3 moveDir = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
-        moveAmount = Vector3.SmoothDamp(moveAmount, moveDir * 
-            (Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : walkSpeed), 
-            ref smoothMoveVelocity, smoothTime);
-    }
-
-    private void Jump()
-    {
-        if (Input.GetKeyDown(KeyCode.Space) && grouned)
-        {
-            rigidbody.AddForce(transform.up * jumpForce);
-        }
     }
 
     private void EquipItem(int _index)
@@ -203,11 +161,6 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
         {
             EquipItem((int)changedProps["itemIndex"]);
         }
-    }
-
-    public void SetGroundedState(bool _grounded)
-    {
-        grouned = _grounded;
     }
 
     public void TakeDamage(float damage)
@@ -241,12 +194,11 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
     {
         parametr.anim.SetBool("isReloading", true);
         parametr.isReloading = true;
-        Debug.Log("Realoding...");
+        Debug.Log("Reloding...");
 
         yield return new WaitForSeconds(parametr.reloadTime);
         parametr.anim.SetBool("isReloading", false);
         parametr.currentAmmo = parametr.maxAmmo;
         parametr.isReloading = false;
     }
-
 }
